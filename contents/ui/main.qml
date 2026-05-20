@@ -32,7 +32,7 @@ PlasmaComponents.Label {
     }
 
     Column {
-        anchors: fill: parent
+        anchors.fill: parent
         spacing: 10
 
         Row {
@@ -100,10 +100,10 @@ PlasmaComponents.Label {
         }
     }
 
-    // Load the JavaScript logic
+    // Load the RSA library
     Component.onCompleted: {
         if (plasmoid) {
-            plasmoid.loadScript("contents/code/main.js")
+            plasmoid.loadScript("contents/code/jsrsasign.js")
         }
     }
 
@@ -129,16 +129,25 @@ PlasmaComponents.Label {
         root.statusText = qsTr("Fetching...")
         root.errorText = ""
 
-        // Call the FusionSolar.init function from the loaded script
-        if (typeof FusionSolar !== 'undefined') {
-            FusionSolar.init({
-                host: apiHost,
-                username: apiUsername,
-                password: apiPassword,
-                stationDn: apiStationDn
-            })
-        } else {
-            root.errorText = qsTr("JavaScript logic not loaded.")
-        }
+        // We'll implement the login and data fetching as a chain of promises
+        window.FusionSolar = window.FusionSolar || {}
+        window.FusionSolar.host = apiHost
+        window.FusionSolar.username = apiUsername
+        window.FusionSolar.password = apiPassword
+        window.FusionSolar.stationDn = apiStationDn
+
+        // Start the process
+        window.FusionSolar.loginAndFetch().then(function(result) {
+            // Update UI
+            root.powerText = result.power !== null ? result.power.toFixed(0) : "--"
+            root.socText = result.soc !== null ? result.soc.toFixed(0) : "--"
+            root.todayEnergyText = result.todayEnergy !== null ? result.todayEnergy.toFixed(1) : "--"
+            root.statusText = ""
+            root.errorText = ""
+        }).catch(function(err) {
+            console.error("FusionSolar error:", err)
+            root.statusText = ""
+            root.errorText = qsTr("Error: %1").arg(err.toString())
+        })
     }
 }
