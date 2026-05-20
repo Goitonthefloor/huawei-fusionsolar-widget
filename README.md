@@ -1,5 +1,7 @@
 # Huawei FusionSolar Plasma Widget / Huawei FusionSolar Plasmoid
 
+> **Note:** This project was created with the assistance of AI (KI).
+
 ## English
 A KDE Plasma widget that displays real-time power, battery state of charge, and today's energy production from Huawei FusionSolar inverters.
 
