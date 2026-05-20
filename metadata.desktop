@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Huawei FusionSolar Widget
+Comment=Shows current power, battery SOC and today's energy from Huawei FusionSolar
+Type=Service
+ServiceTypes=Plasma/Applet
+Icon=preferences-system
+X-KDE-PluginInfo-Author=GoitontheFloor
+X-KDE-PluginInfo-Email=your-email@example.com
+X-KDE-PluginInfo-Name=huawei-fusionsolar-widget
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=https://github.com/GoitontheFloor/huawei-fusionsolar-widget
+X-KDE-PluginInfo-Category=System Information
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-Plasma-ProvidesComponents=org.kde.plasma.applet.huawei-fusionsolar-widget
+X-KDE-PluginInfo-RequireLayer=null
