@@ -1,3 +1,7 @@
+/* Browser globals are absent in the Plasma QML engine. */
+var navigator = (typeof navigator !== "undefined" && navigator) ? navigator : { appName: "Netscape", appVersion: "5.0" };
+var window = (typeof window !== "undefined" && window) ? window : {};
+
 /*
  * jsrsasign(all) 10.6.0 (2022-11-04) (c) 2010-2022 Kenji Urushima | kjur.github.io/jsrsasign/license
  */

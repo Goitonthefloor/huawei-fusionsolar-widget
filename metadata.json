@@ -1,0 +1,22 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "your-email@example.com",
+                "Name": "GoitontheFloor"
+            }
+        ],
+        "Category": "System Information",
+        "Description": "Shows live PV power, battery charge and today's yield from Huawei FusionSolar",
+        "EnabledByDefault": true,
+        "Icon": "weather-clear",
+        "Id": "huawei-fusionsolar-widget",
+        "License": "GPL-3.0-or-later",
+        "Name": "Huawei FusionSolar",
+        "Version": "0.2.0",
+        "Website": "https://github.com/GoitontheFloor/huawei-fusionsolar-widget"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-MainScript": "ui/main.qml"
+}
